@@ -1,4 +1,5 @@
-import 'package:covid_19_tracker/models/custom_header.dart';
+import 'package:covid_19_tracker/models/custom_header2.dart';
+import 'package:covid_19_tracker/models/global.dart';
 import 'package:flutter/material.dart';
 
 class InfoPage extends StatefulWidget {
@@ -31,18 +32,41 @@ class _InfoPageState extends State<InfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        controller: controller,
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              MyHeader(
-                image: "assets/icons/coronadr.svg",
-                textTop: "Get to know",
-                textBottom: "About Covid-19.",
-                offset: offset,
-              ),
-            ]),
+      body: ListView(
+        children: <Widget>[
+          Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                MyHeader2(
+                  image: "assets/icons/coronadr.svg",
+                  textTop: "Get to know",
+                  textBottom: "About Covid-19.",
+                  offset: offset,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: RichText(
+                    text: TextSpan(
+                      text: "Symptoms of ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Colors.black87,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "COVID 19",
+                          style: TextStyle(
+                            color: AppColors.mainColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 25),
+              ]),
+        ],
       ),
     );
   }
