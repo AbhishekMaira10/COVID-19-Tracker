@@ -20,25 +20,25 @@ class WorldwidePanel extends StatelessWidget {
             title: 'CONFIRMED',
             assetName: 'assets/images/count.png',
             color: Colors.orange,
-            count: '123',
+            count: worldData['cases'].toString(),
           ),
           BuildChild(
             title: 'ACTIVE',
             assetName: 'assets/images/fever.png',
             color: Colors.teal,
-            count: '123',
+            count: worldData['active'].toString(),
           ),
           BuildChild(
             title: 'RECOVERED',
             assetName: 'assets/images/patient.png',
             color: Colors.green,
-            count: '123',
+            count: worldData['recovered'].toString(),
           ),
           BuildChild(
             title: 'DEATHS',
             assetName: 'assets/images/death.png',
             color: Colors.red,
-            count: '123',
+            count: worldData['deaths'].toString(),
           ),
         ],
       ),
@@ -66,12 +66,22 @@ class BuildChild extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       child: Container(
         margin: EdgeInsets.only(bottom: 5),
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(5),
         height: 90,
-        width: 190,
+        width: 300,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            color: Colors.blueGrey[50]),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Colors.blueGrey[50],
+          border: Border.all(color: Colors.white),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              offset: Offset(1, 1),
+              spreadRadius: 1,
+              blurRadius: 3,
+            )
+          ],
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
