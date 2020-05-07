@@ -107,9 +107,10 @@ class _IntroPageState extends State<IntroPage> {
                   child: Text(
                     "GET STARTED",
                     style: TextStyle(
-                      color: Colors.blueGrey,
+                      color: Colors.deepPurple,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
+                      fontFamily: 'Circular',
                     ),
                   ),
                 ),
