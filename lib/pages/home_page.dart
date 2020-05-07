@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:covid_19_tracker/models/custom_header.dart';
 import 'package:covid_19_tracker/pages/country_page.dart';
+import 'package:covid_19_tracker/panels/most_affected_countries.dart';
 import 'package:covid_19_tracker/panels/worldwide_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -12,8 +13,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Map worldData;
+  final controller = ScrollController();
+  double offset = 0;
 
+  Map worldData;
   fetchWorldWideData() async {
     http.Response response = await http.get('https://corona.lmao.ninja/v2/all');
     setState(() {
@@ -21,14 +24,26 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  final controller = ScrollController();
-  double offset = 0;
+  List countryData;
+  fetchCountryData() async {
+    http.Response response =
+        await http.get('https://corona.lmao.ninja/v2/countries?sort=deaths');
+    setState(() {
+      countryData = json.decode(response.body);
+    });
+  }
+
+  Future fetchData() async {
+    fetchWorldWideData();
+    fetchCountryData();
+    print('fetchData called');
+  }
 
   @override
   void initState() {
+    fetchData();
     super.initState();
     controller.addListener(onScroll);
-    fetchWorldWideData();
   }
 
   @override
@@ -49,6 +64,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         controller: controller,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             MyHeader(
               image: "assets/icons/Drcorona.svg",
@@ -93,6 +109,19 @@ class _HomePageState extends State<HomePage> {
                 ? CircularProgressIndicator()
                 : WorldwidePanel(
                     worldData: worldData,
+                  ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Most Affected Countries',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+            ),
+            countryData == null
+                ? Container()
+                : MostAffectedPanel(
+                    countryData: countryData,
                   ),
           ],
         ),

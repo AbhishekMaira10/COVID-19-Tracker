@@ -64,7 +64,7 @@ class BuildChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
       child: Container(
         margin: EdgeInsets.only(bottom: 5),
         height: 90,
