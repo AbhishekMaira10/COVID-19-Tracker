@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:covid_19_tracker/models/custom_header.dart';
 import 'package:covid_19_tracker/pages/country_page.dart';
+import 'package:covid_19_tracker/panels/india_panel.dart';
 import 'package:covid_19_tracker/panels/most_affected_countries.dart';
 import 'package:covid_19_tracker/panels/worldwide_panel.dart';
 import 'package:flutter/material.dart';
@@ -170,13 +171,17 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
+              IndiaPanel(),
+              SizedBox(
+                height: 50,
+              ),
               Center(
                   child: Text(
                 'WE ARE TOGETHER IN THIS FIGHT',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               )),
               SizedBox(
-                height: 50,
+                height: 30,
               )
             ],
           ),
