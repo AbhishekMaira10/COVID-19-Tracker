@@ -1,4 +1,5 @@
 import 'package:covid_19_tracker/models/custom_header.dart';
+import 'package:covid_19_tracker/pages/country_page.dart';
 import 'package:covid_19_tracker/panels/worldwide_panel.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,39 @@ class _HomePageState extends State<HomePage> {
               textTop: "All you need to do",
               textBottom: "is to stay at home!!!",
               offset: offset,
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Worldwide',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CountryPage()));
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xff202c3b),
+                            borderRadius: BorderRadius.circular(15)),
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          'Regional',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ),
+                ],
+              ),
             ),
             WorldwidePanel(),
           ],
