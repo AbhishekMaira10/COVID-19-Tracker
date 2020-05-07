@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
             MyHeader(
               image: "assets/icons/Drcorona.svg",
               textTop: "All you need to do",
-              textBottom: "is to stay at home!!!",
+              textBottom: "is stay at home!!!",
               offset: offset,
             ),
             Padding(

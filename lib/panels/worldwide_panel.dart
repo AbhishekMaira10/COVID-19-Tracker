@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class WorldwidePanel extends StatelessWidget {
   const WorldwidePanel({
@@ -20,25 +21,25 @@ class WorldwidePanel extends StatelessWidget {
             title: 'CONFIRMED',
             assetName: 'assets/images/count.png',
             color: Colors.orange,
-            count: worldData['cases'].toString(),
+            count: NumberFormat('#,###,###,###').format(worldData['cases']),
           ),
           BuildChild(
             title: 'ACTIVE',
             assetName: 'assets/images/fever.png',
             color: Colors.teal,
-            count: worldData['active'].toString(),
+            count: NumberFormat('#,###,###,###').format(worldData['active']),
           ),
           BuildChild(
             title: 'RECOVERED',
             assetName: 'assets/images/patient.png',
             color: Colors.green,
-            count: worldData['recovered'].toString(),
+            count: NumberFormat('#,###,###,###').format(worldData['recovered']),
           ),
           BuildChild(
             title: 'DEATHS',
             assetName: 'assets/images/death.png',
             color: Colors.red,
-            count: worldData['deaths'].toString(),
+            count: NumberFormat('#,###,###,###').format(worldData['deaths']),
           ),
         ],
       ),
@@ -66,7 +67,6 @@ class BuildChild extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       child: Container(
         margin: EdgeInsets.only(bottom: 5),
-        padding: EdgeInsets.all(5),
         height: 90,
         width: 300,
         decoration: BoxDecoration(
@@ -102,7 +102,7 @@ class BuildChild extends StatelessWidget {
                       color: color,
                     ),
                     Text(
-                      count,
+                      count.toString(),
                       style: Theme.of(context)
                           .textTheme
                           .display1
