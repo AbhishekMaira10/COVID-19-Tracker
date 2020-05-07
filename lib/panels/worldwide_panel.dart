@@ -64,11 +64,9 @@ class BuildChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 4.0),
       child: Container(
         margin: EdgeInsets.only(bottom: 5),
-        height: 90,
-        width: 300,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           color: Colors.blueGrey[50],
@@ -78,7 +76,7 @@ class BuildChild extends StatelessWidget {
               color: Colors.black26,
               offset: Offset(1, 1),
               spreadRadius: 1,
-              blurRadius: 3,
+              blurRadius: 2,
             )
           ],
         ),
@@ -90,26 +88,26 @@ class BuildChild extends StatelessWidget {
               style:
                   Theme.of(context).textTheme.headline.copyWith(color: color),
             ),
-            SizedBox(height: 4),
             SizedBox(
-                height: 35,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Image.asset(
-                      assetName,
-                      color: color,
-                    ),
-                    Text(
-                      count.toString(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .display1
-                          .copyWith(color: color, fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ))
+              height: 34,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    assetName,
+                    color: color,
+                  ),
+                  Text(
+                    count.toString(),
+                    style: Theme.of(context)
+                        .textTheme
+                        .display1
+                        .copyWith(color: color, fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
