@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:covid_19_tracker/models/custom_header.dart';
 import 'package:covid_19_tracker/pages/country_page.dart';
 import 'package:covid_19_tracker/panels/worldwide_panel.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,6 +12,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Map worldData;
+
+  fetchWorldWideData() async {
+    http.Response response = await http.get('https://corona.lmao.ninja/v2/all');
+    setState(() {
+      worldData = json.decode(response.body);
+    });
+  }
+
   final controller = ScrollController();
   double offset = 0;
 
@@ -16,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     controller.addListener(onScroll);
+    fetchWorldWideData();
   }
 
   @override
@@ -45,7 +58,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
+                  const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -76,7 +89,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            WorldwidePanel(),
+            worldData == null
+                ? CircularProgressIndicator()
+                : WorldwidePanel(
+                    worldData: worldData,
+                  ),
           ],
         ),
       ),
