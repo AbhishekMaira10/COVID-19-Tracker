@@ -1,5 +1,6 @@
 import 'package:covid_19_tracker/models/custom_header2.dart';
 import 'package:covid_19_tracker/models/global.dart';
+import 'package:covid_19_tracker/panels/info_panel.dart';
 import 'package:flutter/material.dart';
 
 class InfoPage extends StatefulWidget {
@@ -41,6 +42,30 @@ class _InfoPageState extends State<InfoPage> {
               textTop: "Get to know",
               textBottom: "About Covid-19.",
               offset: offset,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: RichText(
+                text: TextSpan(
+                  text: "Now is the time to understand more,",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: Colors.black87,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "so that we may fear less. ",
+                      style: TextStyle(
+                        color: Color(0xFF36C12C),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -110,6 +135,10 @@ class _InfoPageState extends State<InfoPage> {
               ),
             ),
           ]),
+          InfoPanel(),
+          SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );

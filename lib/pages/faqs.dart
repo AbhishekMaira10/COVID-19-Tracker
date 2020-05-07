@@ -14,12 +14,16 @@ class FAQPage extends StatelessWidget {
             return ExpansionTile(
               title: Text(
                 DataSource.questionAnswers[index]['question'],
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontFamily: 'Ubuntu'),
               ),
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Text(DataSource.questionAnswers[index]['answer']),
+                  child: Text(
+                    DataSource.questionAnswers[index]['answer'],
+                    style: TextStyle(fontFamily: 'Poppins'),
+                  ),
                 )
               ],
             );
