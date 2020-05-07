@@ -1,4 +1,5 @@
 import 'package:covid_19_tracker/models/custom_header.dart';
+import 'package:covid_19_tracker/panels/worldwide_panel.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,6 +42,7 @@ class _HomePageState extends State<HomePage> {
               textBottom: "is to stay at home!!!",
               offset: offset,
             ),
+            WorldwidePanel(),
           ],
         ),
       ),

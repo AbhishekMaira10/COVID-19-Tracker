@@ -22,7 +22,7 @@ class _MyHeader2State extends State<MyHeader2> {
       clipper: MyClipper(),
       child: Container(
         padding: EdgeInsets.only(left: 40, top: 50, right: 20),
-        height: 350,
+        height: 300,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
