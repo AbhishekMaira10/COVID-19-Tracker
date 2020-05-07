@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(15)),
                         padding: EdgeInsets.all(10),
                         child: Text(
-                          'Regional',
+                          'Regional Stats',
                           style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,

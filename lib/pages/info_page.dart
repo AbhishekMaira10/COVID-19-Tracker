@@ -65,7 +65,7 @@ class _InfoPageState extends State<InfoPage> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -104,7 +104,7 @@ class _InfoPageState extends State<InfoPage> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -135,6 +135,9 @@ class _InfoPageState extends State<InfoPage> {
               ),
             ),
           ]),
+          SizedBox(
+            height: 20,
+          ),
           InfoPanel(),
           SizedBox(
             height: 20,
