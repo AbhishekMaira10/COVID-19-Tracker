@@ -22,8 +22,6 @@ dependencies:
   flutter_svg: ^0.17.4
   url_launcher: ^5.4.5
   http: ^0.12.1
-  shared_preferences: ^0.5.7+1
-  dynamic_theme: ^1.0.1
   pie_chart: ^3.1.1
   intl: ^0.16.1
   dio: ^3.0.9

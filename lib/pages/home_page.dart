@@ -1,11 +1,11 @@
 import 'dart:convert';
 
+import 'package:covid_19_tracker/models/Ticases.dart';
 import 'package:covid_19_tracker/models/custom_header.dart';
 import 'package:covid_19_tracker/pages/country_page.dart';
 import 'package:covid_19_tracker/panels/india_panel.dart';
 import 'package:covid_19_tracker/panels/most_affected_countries.dart';
 import 'package:covid_19_tracker/panels/worldwide_panel.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pie_chart/pie_chart.dart';
@@ -19,14 +19,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final controller = ScrollController();
   double offset = 0;
-
-  final String url = "https://api.rootnet.in/covid19-in/stats/latest";
-  Future<List> datas;
-
-  Future<List> getData() async {
-    var response = await Dio().get(url);
-    return response.data['data']['summary'];
-  }
 
   Map worldData;
   fetchWorldWideData() async {
@@ -45,16 +37,31 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  final String url = "https://api.rootnet.in/covid19-in/stats/latest";
+
+  Future<Ticases> getJsonData() async {
+    var response = await http.get(
+      Uri.encodeFull(url),
+    );
+    if (response.statusCode == 200) {
+      final convertDataJson = jsonDecode(response.body)['data']['summary'];
+
+      return Ticases.fromJson(convertDataJson);
+    } else {
+      throw Exception('Try to  Reload Page');
+    }
+  }
+
   Future fetchData() async {
     fetchWorldWideData();
     fetchCountryData();
+    getJsonData();
     print('fetchData called');
   }
 
   @override
   void initState() {
     fetchData();
-    datas = getData();
     super.initState();
     controller.addListener(onScroll);
   }
@@ -199,7 +206,18 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 10,
               ),
-              IndiaPanel(),
+              FutureBuilder<Ticases>(
+                  future: getJsonData(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      final covid = snapshot.data;
+                      return IndiaPanel(
+                          tCases: covid.total,
+                          deaths: covid.deaths,
+                          discharged: covid.discharged);
+                    }
+                    return Center(child: CircularProgressIndicator());
+                  }),
               SizedBox(
                 height: 50,
               ),

@@ -2,6 +2,16 @@ import 'package:covid_19_tracker/pages/india.dart';
 import 'package:flutter/material.dart';
 
 class IndiaPanel extends StatelessWidget {
+  const IndiaPanel(
+      {Key key,
+      @required this.tCases,
+      @required this.deaths,
+      @required this.discharged})
+      : super(key: key);
+  final int tCases;
+  final int deaths;
+  final int discharged;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,21 +62,21 @@ class IndiaPanel extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Text(
-                    "Total Cases: 123",
+                    "Total Cases: $tCases",
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.teal,
                         fontFamily: 'Poppins'),
                   ),
                   Text(
-                    "Discharged: 123",
+                    "Discharged: $discharged",
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.green,
                         fontFamily: 'Poppins'),
                   ),
                   Text(
-                    "Deaths: 123",
+                    "Deaths: $deaths",
                     style: TextStyle(
                         fontSize: 20, color: Colors.red, fontFamily: 'Poppins'),
                   ),
