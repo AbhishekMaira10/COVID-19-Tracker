@@ -5,6 +5,7 @@ import 'package:covid_19_tracker/pages/country_page.dart';
 import 'package:covid_19_tracker/panels/india_panel.dart';
 import 'package:covid_19_tracker/panels/most_affected_countries.dart';
 import 'package:covid_19_tracker/panels/worldwide_panel.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pie_chart/pie_chart.dart';
@@ -18,6 +19,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final controller = ScrollController();
   double offset = 0;
+
+  final String url = "https://api.rootnet.in/covid19-in/stats/latest";
+  Future<List> datas;
+
+  Future<List> getData() async {
+    var response = await Dio().get(url);
+    return response.data['data']['summary'];
+  }
 
   Map worldData;
   fetchWorldWideData() async {
@@ -45,6 +54,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     fetchData();
+    datas = getData();
     super.initState();
     controller.addListener(onScroll);
   }
@@ -85,8 +95,10 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     Text(
                       'Worldwide',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF152238)),
                     ),
                     SizedBox(
                       width: 30,
@@ -160,7 +172,10 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   'Most Affected Countries',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF152238)),
                 ),
               ),
               countryData == null
@@ -171,6 +186,19 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Indian Statistics',
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF152238)),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
               IndiaPanel(),
               SizedBox(
                 height: 50,
@@ -178,7 +206,10 @@ class _HomePageState extends State<HomePage> {
               Center(
                   child: Text(
                 'WE ARE TOGETHER IN THIS FIGHT',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Color(0xFF152238)),
               )),
               SizedBox(
                 height: 30,
