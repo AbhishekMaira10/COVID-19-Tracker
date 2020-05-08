@@ -1,3 +1,4 @@
+import 'package:covid_19_tracker/models/bouncy_page_route.dart';
 import 'package:covid_19_tracker/pages/info_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -43,14 +44,7 @@ class _MyHeaderState extends State<MyHeader> {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return InfoPage();
-                    },
-                  ),
-                );
+                Navigator.push(context, BouncyPageRoute(widget: InfoPage()));
               },
               child: SvgPicture.asset("assets/icons/menu.svg"),
             ),

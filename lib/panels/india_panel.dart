@@ -1,3 +1,4 @@
+import 'package:covid_19_tracker/models/bouncy_page_route.dart';
 import 'package:covid_19_tracker/pages/india.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -47,8 +48,8 @@ class IndiaPanel extends StatelessWidget {
                     Padding(padding: EdgeInsets.all(10)),
                     OutlineButton(
                       borderSide: BorderSide(color: Color(0xFFfe9900)),
-                      onPressed: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => India())),
+                      onPressed: () => Navigator.push(
+                          context, BouncyPageRoute(widget: India())),
                       child: Text(
                         "          Indian \n Statewise Statistics",
                         style: TextStyle(

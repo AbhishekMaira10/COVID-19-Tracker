@@ -1,3 +1,4 @@
+import 'package:covid_19_tracker/models/bouncy_page_route.dart';
 import 'package:covid_19_tracker/pages/faqs.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,8 +11,7 @@ class InfoPanel extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => FAQPage()));
+              Navigator.push(context, BouncyPageRoute(widget: FAQPage()));
             },
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
