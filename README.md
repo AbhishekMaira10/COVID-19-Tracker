@@ -15,6 +15,7 @@ Show some love 💜 and Star ⭐️ the Repository to support the project.
 
 - [Get Up and Running in 5 Minutes](#rocket-get-up-and-running-in-5-minutes)
 - [Flutter / Dart Packages Used](#ballot_box-flutter--dart-packages-used)
+- [API's Used](#API's-Used)
 - [Features](#Features)
 - [Versioning](#label-versioning)
 - [Queries / Bugs](#question-queries--bugs)
@@ -57,6 +58,10 @@ samples, guidance on mobile development, and a full API reference.
 |  pie_chart   |     latest      | [Open on pub.dev](https://pub.dev/packages?q=pie_chart)  |
 |     dio      |     latest      |     [Open on pub.dev](https://pub.dev/packages/dio)      |
 |     intl     |     latest      |     [Open on pub.dev](https://pub.dev/packages/intl)     |
+
+## API's Used:
+[Country-wise data](https://corona.lmao.ninja/v2/countries)
+[Indian state-wise data](https://api.rootnet.in/covid19-in/stats/latest)
 
 ## Features:
 
