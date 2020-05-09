@@ -7,7 +7,7 @@ Show some love 💜 and Star ⭐️ the Repository to support the project.
 
 |                 Splash Screen               |                Home Page                |                    Info Page                    |
 |:-------------------------------------------------:|:-------------------------------------------------:|:-------------------------------------------------:|
-|<img width="1604" src="/splash-screen.jpeg.jpg"> | <img width="1604" src="/homepage.jpeg"> | <img width="1604" src="/infopage.jpeg"> |
+|<img width="1604" src="/splash-screen.jpeg"> | <img width="1604" src="/homepage.jpeg"> | <img width="1604" src="/infopage.jpeg"> |
 
 
 ## :rocket: Get Up and Running in 5 Minutes
