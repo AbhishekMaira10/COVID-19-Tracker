@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^0.17.4
-  url_launcher: ^5.4.5
+  url_launcher: ^5.3.0
   http: ^0.12.1
   pie_chart: ^3.1.1
   intl: ^0.16.1

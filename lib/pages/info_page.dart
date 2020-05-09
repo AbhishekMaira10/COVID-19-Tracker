@@ -100,7 +100,7 @@ class _InfoPageState extends State<InfoPage> {
                   _buildSymptomItem("assets/images/drycough.png", "Dry Cough"),
                   _buildSymptomItem("assets/images/headache2.png", "Headache"),
                   _buildSymptomItem(
-                      "assets/images/breathless.png", "Breathless"),
+                      "assets/images/breathless.png", "Breathlessness"),
                 ],
               ),
             ),
