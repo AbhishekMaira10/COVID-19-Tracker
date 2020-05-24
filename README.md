@@ -29,7 +29,7 @@ You can get the COVID-19 Tracker App up and running on your local dev environmen
 2. **Open Terminal & navigate to the root directory of the project.**
 
    ```shell
-   cd BHIM
+   cd COVID-19-Tracker
    ```
 
 3. **Run and launch the build on preferred device.**
