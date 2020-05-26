@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pie_chart/pie_chart.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wiredash/wiredash.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -223,15 +224,48 @@ class _HomePageState extends State<HomePage> {
               ),
               Center(
                   child: Text(
-                'WE ARE TOGETHER IN THIS FIGHT',
+                'WE ARE TOGETHER IN THIS FIGHT.',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 18,
                     color: Color(0xFF152238)),
               )),
               SizedBox(
-                height: 30,
-              )
+                height: 20,
+              ),
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                        child: Text(
+                      'Please give us your valuable',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color(0xFF152238)),
+                    )),
+                  ),
+                  GestureDetector(
+                    onTap: Wiredash.of(context).show,
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.blueAccent,
+                            borderRadius: BorderRadius.circular(15)),
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          'feedback',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),

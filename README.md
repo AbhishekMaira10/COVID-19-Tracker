@@ -72,6 +72,7 @@ samples, guidance on mobile development, and a full API reference.
 - Data displayed in pie-chart
 - App logo and splash-screen
 - Symptoms, prevention, myth busters
+- User feedback using wiredash.io
 
 ## :label: Versioning
 
